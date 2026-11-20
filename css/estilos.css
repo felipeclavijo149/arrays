@@ -1,0 +1,246 @@
+/* Estilos generales - Taller de Arrays */
+
+:root {
+    --fondo: #0f172a;
+    --panel: #172033;
+    --panel-claro: #202c43;
+    --texto: #e5edf7;
+    --texto-suave: #aab8cb;
+    --acento: #67e8f9;
+    --acento-fuerte: #22d3ee;
+    --borde: #334155;
+    --sombra: rgba(2, 6, 23, 0.55);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    background:
+        radial-gradient(circle at top, rgba(34, 211, 238, 0.12), transparent 32rem),
+        var(--fondo);
+}
+
+body {
+    width: min(900px, calc(100% - 32px));
+    margin: 40px auto;
+    padding: 32px;
+    color: var(--texto);
+    background: rgba(23, 32, 51, 0.96);
+    border: 1px solid var(--borde);
+    border-radius: 18px;
+    box-shadow: 0 20px 50px var(--sombra);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+h1 {
+    margin: 0 0 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--borde);
+    color: #fff;
+    font-size: clamp(1.7rem, 5vw, 2.35rem);
+    line-height: 1.2;
+    text-align: center;
+}
+
+h2 {
+    margin: 28px 0 12px;
+    color: var(--acento);
+    font-size: 1.15rem;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 20px;
+    background: var(--panel-claro);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+}
+
+form label {
+    flex-basis: 100%;
+    margin-bottom: -6px;
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+input {
+    flex: 1 1 220px;
+    min-width: 0;
+    height: 46px;
+    padding: 10px 14px;
+    color: var(--texto);
+    background: #111827;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    font: inherit;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input::placeholder {
+    color: #7f8da3;
+}
+
+input:focus {
+    border-color: var(--acento-fuerte);
+    box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.16);
+}
+
+button {
+    min-height: 46px;
+    padding: 10px 18px;
+    color: #082f49;
+    background: var(--acento-fuerte);
+    border: 0;
+    border-radius: 8px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s, background 0.15s, box-shadow 0.15s;
+}
+
+button:hover {
+    background: var(--acento);
+    box-shadow: 0 8px 18px rgba(34, 211, 238, 0.18);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+ul,
+ol {
+    margin: 12px 0 20px;
+    padding: 0;
+    list-style: none;
+}
+
+ul li,
+ol li {
+    margin: 8px 0;
+    padding: 12px 16px;
+    background: var(--panel-claro);
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+}
+
+ul li {
+    border-left: 4px solid var(--acento-fuerte);
+}
+
+ol {
+    counter-reset: ejercicio;
+}
+
+ol li {
+    counter-increment: ejercicio;
+}
+
+ol li::before {
+    content: counter(ejercicio, decimal-leading-zero);
+    display: inline-grid;
+    width: 38px;
+    height: 38px;
+    margin-right: 12px;
+    place-items: center;
+    color: #082f49;
+    background: var(--acento-fuerte);
+    border-radius: 50%;
+    font-weight: 800;
+}
+
+a {
+    color: var(--texto);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--acento);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    background: var(--panel-claro);
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+}
+
+th,
+td {
+    padding: 12px;
+    border: 1px solid var(--borde);
+    text-align: left;
+}
+
+th {
+    color: var(--acento);
+    background: #26344c;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+tr:nth-child(even) td {
+    background: rgba(15, 23, 42, 0.35);
+}
+
+#resultado,
+#cantidad,
+#suma,
+#promedio,
+#mayor,
+#menor,
+#total,
+#productoMayor {
+    margin: 12px 0;
+    padding: 13px 16px;
+    background: rgba(34, 211, 238, 0.08);
+    border-left: 4px solid var(--acento-fuerte);
+    border-radius: 8px;
+    color: var(--texto);
+}
+
+p:empty {
+    display: none;
+}
+
+@media (max-width: 650px) {
+    body {
+        width: calc(100% - 20px);
+        margin: 10px auto;
+        padding: 20px 14px;
+        border-radius: 12px;
+    }
+
+    form {
+        padding: 14px;
+    }
+
+    input,
+    button {
+        flex-basis: 100%;
+        width: 100%;
+    }
+
+    ol li {
+        display: flex;
+        align-items: center;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
